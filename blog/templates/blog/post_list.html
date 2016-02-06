@@ -8,16 +8,12 @@
 			<p>published: 02.04.2016, 1:29</p>
 		</div>
 
-		<div>
-			<h2><a href="">My First Post</a></h2>
-			<p>published: 02.06.2016, 1:29</p>
-			<p>Hello my name is Nicole</p>
-		</div>
-
-		<div>
-			<h2><a href="">My Second Post</a></h2>
-			<p>published: 02.08.2016, 1:30</p>
-			<p>What is your name?</p>
-		</div>
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h1><a href="">{{ post.title }}</a></h1>
+				<p>{{ post.text|linebreaks }}</p>
+			</div>
+		{% endfor %}
 	</body>
 </html>
