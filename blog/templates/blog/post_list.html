@@ -1,19 +1,13 @@
-<html>
-	<head>
-		<title>Nicole's blog</title>
-	</head>
-	<body>
-		<div>
-			<h1><a href="">Nicole's Blog</a></h1>
-			<p>published: 02.04.2016, 1:29</p>
-		</div>
+{% extends 'blog/base.html' %}
 
-		{% for post in posts %}
-			<div>
-				<p>published: {{ post.published_date }}</p>
-				<h1><a href="">{{ post.title }}</a></h1>
-				<p>{{ post.text|linebreaks }}</p>
-			</div>
-		{% endfor %}
-	</body>
-</html>
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaks }}</p>
+    </div>
+{% endblock %}
